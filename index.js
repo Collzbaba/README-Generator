@@ -1,86 +1,73 @@
+// TODO: Include packages needed for this application
+const inquirer = require('inquirer');
+const fs = require('fs');
+const generateREADME = require('./utils/generateMarkdown');
 
-const fs = require("fs");
-const inquirer = require("inquirer");
-const { isGeneratorFunction } = require("util/types");
-const generateMarkdown = require("./utils/generateMarkdown");
+// TODO: Create an array of questions for user input
+const questions = [{
+    type: 'input',
+    name: 'title',
+    message: 'Please enter your project title. ',
+  },
+  {
+    type: 'input',
+    name: 'discription',
+    message: 'Please enter the project discription. ',
+  },
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'Please enter the project installation instructions. ',
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'Please enter the project usage information. ',
+  },
+  {
+    type: 'input',
+    name: 'contribution',
+    message: 'Please enter the project contribution guidelines. ',
+  },
+  {
+    type: 'input',
+    name: 'test',
+    message: 'Please enter the project test instructions. ',
+  },
+  {
+    type: 'list',
+    name: 'license',
+    message: 'Please choose a license for your application. ',
+    choices: ['Apache', 'MIT', 'GNU', 'Mozilla'],
+  },
+  {
+    type: 'input',
+    name: 'github',
+    message: 'Please enter your GitHub username. ',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'Please enter your email address. ',
+  },
+];
 
-function promptUser(){
-    return inquirer.prompt([
-        {
-            type: "input",
-            name: "projectTitle",
-            message: "What is the project title?",
-        },
-        {
-            type: "input",
-            name: "description",
-            message: "Write a brief description of your project: "
-        },
-        {
-            type: "input",
-            name: "installation",
-            message: "Describe the installation process if any: ",
-        },
-        {
-            type: "input",
-            name: "usage",
-            message: "What is this project usage for?"
-        },
-        {
-            type: "list",
-            name: "license",
-            message: "Chose the appropriate license for this project: ",
-            choices: [
-                "Apache",
-                "Academic",
-                "GNU",
-                "ISC",
-                "MIT",
-                "Mozilla",
-                "Open"
-            ]
-        },
-        {
-            type: "input",
-            name: "contributing",
-            message: "Who are the contributors of this projects?"
-        },
-        {
-            type: "input",
-            name: "tests",
-            message: "Is there a test included?"
-        },
-        {
-            type: "input",
-            name: "questions",
-            message: "What do I do if I have an issue? "
-        },
-        {
-            type: "input",
-            name: "githuburl",
-            message: "Please enter your GitHub username: "
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Please enter your email: "
-        }
-    ]);
-} 
-function createfile(filename, contents) { 
-    return fs.writeFileSync(filename, contents);
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) =>
+  err ? console.log(err) : console.log('Successfully created README.md!'))
 }
 
+// TODO: Create a function to initialize app
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((answers) => {
+      const readmePageContent = generateREADME(answers);
 
-  async function init() {
-    try {
-        const answers = await promptUser();
-        const generateContent = generateMarkdown(answers);
-        createfile("README.md", generateContent);
-        console.log(generateContent);
-    }   catch(err) {
-        console.log(err);
-    }
-  }
-  
-  init();  
+      writeToFile('README.md', readmePageContent);
+    });
+}
+
+// Function call to initialize app
+init();
