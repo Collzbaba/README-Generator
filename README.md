@@ -30,8 +30,13 @@
   ***
   
   <a name="contribution"></a>
-  ## Contribution guidelines
-  1. Fork the repository associated with the issue to your local GitHub. 2. Clone the repository to your local machine. 3. Create a new branch and make appropriate changes for the issue you are trying to address or the feature that you want to add. 4. Push the changes to the remote repository using git push origin branch-name-here. 5. Submit a pull request with a short description of the changes made and the issue or bug number associated with your change. 6. Wait for the pull request to be reviewed by a maintainer. 7. Make changes to the pull request if the review maintainer recommends. Otherwise celebrate your success after your pull request is merged!
+  ## Contribution
+  Blessed Adodo
+  ***
+
+  <a name="Test"></a>
+  ## Test
+  you run the following command "node index" and then follow the instructions accordingly
   ***
   
   <a name="questions"></a>
@@ -46,5 +51,5 @@
 
   ## Screenshots
   ![Screenshots](./images/readme-generator-screenshot.png)
-  
+
   
