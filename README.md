@@ -52,4 +52,8 @@
   ## Screenshots
   ![Screenshots](./images/readme-generator-screenshot.png)
 
+  ## Video link
+  #### https://kapwi.ng/w/WT3a9uaKVa
+
+
   
