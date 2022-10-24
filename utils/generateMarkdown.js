@@ -1,11 +1,8 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//function that return empty string
 function renderLicenseBadge(license) {
   return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
   // 'Apache', 'MIT', 'GNU', 'Mozilla'
   switch (license) {
@@ -20,8 +17,7 @@ function renderLicenseLink(license) {
   } 
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// function that returns the license section of README
 function renderLicenseSection(license) {
   switch(license) {
     case 'Apache':
@@ -34,8 +30,7 @@ function renderLicenseSection(license) {
       return 'Permissions of this weak copyleft license are conditioned on making available source code of licensed files and modifications of those files under the same license (or in certain cases, one of the GNU licenses). Copyright and license notices must be preserved. Contributors provide an express grant of patent rights. However, a larger work using the licensed work may be distributed under different terms and without source code for files added in the larger work.';
   }
 }
-
-// TODO: Create a function to generate markdown for README
+//  function to generate markdown for README
 const generateMarkdown = ({
   title,
   license,
